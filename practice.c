@@ -1,46 +1,33 @@
 #include<stdio.h>
-#include<math.h>
-int main()
+void main()
 {
-    float a,b,c;
-    float root1,root2;
-    float D,real,imag;
-    printf("Enter coefficients a, b and c: ");
-    scanf("%f %f %f",&a,&b,&c);
+    int  score[100],i,j,n,temp;
+    printf("Enter the num of elements: \n");
+    scanf("%d",&n);
 
-    if(a==0 && b==0)
+    printf("Enter the scores: \n");
+    for(i=0;i<n;i++)
     {
+        scanf("%d",&score[i]);
+    }
 
-    printf("Invalid coefficents \n");
-    return 0;
-    }
-    else if(a==0)
+    
+    for(i=0;i<n-1;i++)
     {
-        root1=-c/b;
-        printf("Linear Equation Root: %.2f\n",root1);
-
-    }
-    else if((D=b*b-4*a*c)>0)
+    for(j=0;j<n-i-1;j++)
     {
-        root1=(-b+sqrt(D))/(2*a);
-        root2=(-b-sqrt(D))/(2*a);
-        printf("Roots are real and distinct.\n");
-        printf("Root1 = %.2f\nRoot2= %.2f\n",root1,root2);
-
+        if(score[j]<score[j+1])
+        {
+            temp=score[j];
+            score[j]=score[j+1];
+            score[j+1]=temp;
+        }
     }
-    else if(D==0)
-    {
-        root1=-b/(2*a);
-        printf("Roots are real & equal \n");
-        printf("Root=%.2f\n",root1);
-    }
-    else
-    {
-        real = -b/(2*a);
-        imag = sqrt(-D)/(2*a);
-        printf("Roots are complex and imaginary.\n");
-        printf("Root1= %.2f + %.2fi \n",real,imag);
-        printf("Root2= %.2f - %.2fi \n",real,imag);
-    }
-    return 0;
+}
+printf("\n Desc scores: \n");
+for(i=0;i<n;i++)
+{
+    printf("%d\n",score[i]);
+}
+    
 }
