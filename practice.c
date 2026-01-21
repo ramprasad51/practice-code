@@ -1,33 +1,28 @@
+// passing individual maembers of struct to function
 #include<stdio.h>
-void main()
-{
-    int  score[100],i,j,n,temp;
-    printf("Enter the num of elements: \n");
-    scanf("%d",&n);
 
-    printf("Enter the scores: \n");
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&score[i]);
-    }
-
-    
-    for(i=0;i<n-1;i++)
-    {
-    for(j=0;j<n-i-1;j++)
-    {
-        if(score[j]<score[j+1])
-        {
-            temp=score[j];
-            score[j]=score[j+1];
-            score[j+1]=temp;
-        }
-    }
-}
-printf("\n Desc scores: \n");
-for(i=0;i<n;i++)
+struct student
 {
-    printf("%d\n",score[i]);
+    int roll;
+    float marks;
+};
+
+void display(int r, float m);
+int main()
+{
+    struct student s1;
+    printf("Enter student marks: \n");
+    scanf("%f",&s1.marks);
+    printf("Enter roll no: \n");
+    scanf("%d",&s1.roll);
+    display(s1.roll,s1.marks);
+    return 0;
 }
-    
+
+void display(int r,float m)
+{
+    printf("\n student deatils \n");
+    printf("roll:%d\nmarks:%.3f\n",r,m);
 }
+
+
