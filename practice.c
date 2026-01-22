@@ -1,28 +1,27 @@
-// passing individual maembers of struct to function
+// passing struct --> function using  *ptr
 #include<stdio.h>
-
 struct student
 {
     int roll;
     float marks;
 };
 
-void display(int r, float m);
+void modify(struct student *s);
 int main()
 {
     struct student s1;
-    printf("Enter student marks: \n");
-    scanf("%f",&s1.marks);
-    printf("Enter roll no: \n");
+    printf("Enter roll num: \n");
     scanf("%d",&s1.roll);
-    display(s1.roll,s1.marks);
+    printf("Enter marks: \n");
+    scanf("%f",&s1.marks);
+    modify(&s1);
+    printf("\n After modification : \n");
+    printf("Roll:%d\nmarks:%.2f\n",s1.roll,s1.marks);
     return 0;
 }
 
-void display(int r,float m)
+void modify(struct student  *s)
 {
-    printf("\n student deatils \n");
-    printf("roll:%d\nmarks:%.3f\n",r,m);
+    s -> marks += 5;
 }
-
 
