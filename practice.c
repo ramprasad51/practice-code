@@ -1,27 +1,24 @@
-// passing struct --> function using  *ptr
-#include<stdio.h>
-struct student
+//comparing two structures variables of same type
+#include <stdio.h>
+#include <string.h>
+struct student 
 {
-    int roll;
+    int usn;
+    char name[20];
     float marks;
 };
-
-void modify(struct student *s);
 int main()
 {
-    struct student s1;
-    printf("Enter roll num: \n");
-    scanf("%d",&s1.roll);
-    printf("Enter marks: \n");
-    scanf("%f",&s1.marks);
-    modify(&s1);
-    printf("\n After modification : \n");
-    printf("Roll:%d\nmarks:%.2f\n",s1.roll,s1.marks);
-    return 0;
+    struct student  s1={51,"Ram",89.5};
+    struct student  s2={51,"Ram",89.5};
+    if(s1.usn==s2.usn && strcmp(s1.name,s2.name)==0 && s1.marks==s2.marks)
+    {
+    printf("Both structure are equal");
+    }
+        else
+        {
+        printf("Both structure are not equal");
+        }
+      return 0;
+        
 }
-
-void modify(struct student  *s)
-{
-    s -> marks += 5;
-}
-
