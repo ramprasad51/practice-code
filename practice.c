@@ -1,24 +1,54 @@
-//comparing two structures variables of same type
-#include <stdio.h>
-#include <string.h>
-struct student 
+#include<stdio.h>
+struct student
 {
+    char name[50];
     int usn;
-    char name[20];
     float marks;
 };
+
 int main()
 {
-    struct student  s1={51,"Ram",89.5};
-    struct student  s2={51,"Ram",89.5};
-    if(s1.usn==s2.usn && strcmp(s1.name,s2.name)==0 && s1.marks==s2.marks)
+    struct student s[50];
+    int i,n;
+    float total=0,avg;
+    printf("Enter num of students: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++)
     {
-    printf("Both structure are equal");
+        printf("\n Enter deatils of students %d \n",i+1);
+        printf("Name: ");
+        scanf("%s",&s[i].name);
+        printf("USN: ");
+        scanf("%d",&s[i].usn);
+        printf("Marks: ");
+        scanf("%f",&s[i].marks);
+        total += s[i].marks;
     }
-        else
+    avg=total/n;
+
+    printf("\n class avg marks:%.2f\n",avg);
+    printf("\n Students scoring above avg\n");
+    for(i=0;i<n;i++)
+    {
+        if(s[i].marks>avg)
         {
-        printf("Both structure are not equal");
+            printf("%s(USN:%d)\n",s[i].name,s[i].usn);
+
         }
-      return 0;
+
+    }
+
+printf("\n Students scoring below avg\n");
+    for(i=0;i<n;i++)
+    {
+        if(s[i].marks<avg)
+        {
+            printf("%s(USN:%d)\n",s[i].name,s[i].usn);
+
+        }
         
+
+    }
+    return 0;
 }
