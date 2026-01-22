@@ -1,5 +1,5 @@
 #include<stdio.h>
-struct student
+struct student 
 {
     char name[50];
     int usn;
@@ -16,39 +16,34 @@ int main()
 
     for(i=0;i<n;i++)
     {
-        printf("\n Enter deatils of students %d \n",i+1);
+        printf("Enter deatils of students %d\n",i+1);
         printf("Name: ");
-        scanf("%s",&s[i].name);
+        scanf("%s",s[i].name);
         printf("USN: ");
         scanf("%d",&s[i].usn);
         printf("Marks: ");
         scanf("%f",&s[i].marks);
         total += s[i].marks;
     }
-    avg=total/n;
-
-    printf("\n class avg marks:%.2f\n",avg);
-    printf("\n Students scoring above avg\n");
+    avg = total/n;
+    printf("Class avg:%.2f",avg);
+    
+    printf("Students scoring above avg\n");
     for(i=0;i<n;i++)
     {
         if(s[i].marks>avg)
         {
-            printf("%s(USN:%d)\n",s[i].name,s[i].usn);
-
+            printf("%s(USN:%d)",s[i].name,s[i].usn);
         }
-
     }
 
-printf("\n Students scoring below avg\n");
+    printf("\nStudents scoring below avg\n");
     for(i=0;i<n;i++)
     {
         if(s[i].marks<avg)
         {
-            printf("%s(USN:%d)\n",s[i].name,s[i].usn);
-
+            printf("%s(USN:%d)",s[i].name,s[i].usn);
         }
-        
-
     }
     return 0;
 }
