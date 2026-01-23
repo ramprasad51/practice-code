@@ -1,49 +1,22 @@
+// Nested structures
 #include<stdio.h>
-struct student 
-{
-    char name[50];
-    int usn;
-    float marks;
+struct marks{
+    int m1;
+    int m2;
 };
-
+struct student{
+    int usn;
+    struct marks m;
+};
 int main()
 {
-    struct student s[50];
-    int i,n;
-    float total=0,avg;
-    printf("Enter num of students: ");
-    scanf("%d",&n);
-
-    for(i=0;i<n;i++)
-    {
-        printf("Enter deatils of students %d\n",i+1);
-        printf("Name: ");
-        scanf("%s",s[i].name);
-        printf("USN: ");
-        scanf("%d",&s[i].usn);
-        printf("Marks: ");
-        scanf("%f",&s[i].marks);
-        total += s[i].marks;
-    }
-    avg = total/n;
-    printf("Class avg:%.2f",avg);
-    
-    printf("Students scoring above avg\n");
-    for(i=0;i<n;i++)
-    {
-        if(s[i].marks>avg)
-        {
-            printf("%s(USN:%d)",s[i].name,s[i].usn);
-        }
-    }
-
-    printf("\nStudents scoring below avg\n");
-    for(i=0;i<n;i++)
-    {
-        if(s[i].marks<avg)
-        {
-            printf("%s(USN:%d)",s[i].name,s[i].usn);
-        }
-    }
+    struct student s;
+    s.usn=51;
+    s.m.m1=96;
+    s.m.m2=100;
+    printf("USN:%d\n",s.usn);
+    printf("Marks1=%d\n",s.m.m1);
+    printf("Marks2=%d\n",s.m.m2);
     return 0;
+
 }
