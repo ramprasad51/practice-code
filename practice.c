@@ -1,21 +1,29 @@
-//Computing factorial
-#include<stdio.h>
-int fact(int);
+// to check whether a number is prime or not
+#include <stdio.h>
+int isprime(int );
 int main()
 {
-    int result,n;
-    printf("Enter a num: ");
-    scanf("%d",&n);
-    result =fact(n);
-    printf("Factorial of %d is %d\n",n,result);
-    return 0;
+ int n,result;
+ printf("enter a number: ");
+ scanf("%d",&n);
+ result=isprime(n);
+ if(result==1)
+ printf("%d is prime number",n);
+ else
+ printf("%d is not a prime number",n);
+ return 0;
+
 }
-int fact(int n)
+int isprime(int num)
 {
-    if(n==0)
-    return 1;
-    else
-    return n*fact(n-1);
-    
-    
+    int i;
+    if(num<=1)
+    return 0;
+    for(i=2;i<=num-1;i++)
+{
+    if(num%i==0)
+    return 0;
+
+}
+return 1;
 }
