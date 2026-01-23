@@ -1,22 +1,21 @@
-// Nested structures
+//Computing factorial
 #include<stdio.h>
-struct marks{
-    int m1;
-    int m2;
-};
-struct student{
-    int usn;
-    struct marks m;
-};
+int fact(int);
 int main()
 {
-    struct student s;
-    s.usn=51;
-    s.m.m1=96;
-    s.m.m2=100;
-    printf("USN:%d\n",s.usn);
-    printf("Marks1=%d\n",s.m.m1);
-    printf("Marks2=%d\n",s.m.m2);
+    int result,n;
+    printf("Enter a num: ");
+    scanf("%d",&n);
+    result =fact(n);
+    printf("Factorial of %d is %d\n",n,result);
     return 0;
-
+}
+int fact(int n)
+{
+    if(n==0)
+    return 1;
+    else
+    return n*fact(n-1);
+    
+    
 }
