@@ -1,19 +1,23 @@
-// Using Function to find sum of two numbers//
+// Fibonacci Series
 #include<stdio.h>
-int sum(int a,int b);      //Function declration
+int fib(int);
 int main()
 {
-    int a,b,result;    //a,b are 2 num for addition nd result to store their sum
-    printf("Enter 2 numbers: ");
-    scanf("%d %d",&a,&b);
-    result=sum(a,b);   //Function call
-    printf("Sum of two numbers is %d\n",result);
-    return 0;
+    int i,n;
+    printf("Enter a number of terms: ");
+    scanf("%d",&n);
+    for(i=0;i<=n;i++)
+    {
+        printf("%d\t",fib(i));
+    }
 }
 
-int sum(int x , int y)  //Function defintion
+int fib(int n)
 {
-    int s;
-    s=x+y;
-    return s;
+    if(n==0)
+    return 0;
+    else if(n==1)
+    return 1;
+    else
+    return fib(n-1)+fib(n-2);
 }
