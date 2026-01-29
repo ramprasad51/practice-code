@@ -1,23 +1,24 @@
-// Fibonacci Series
 #include<stdio.h>
-int fib(int);
-int main()
+#include<math.h>
+#define PI 3.14
+void main()
 {
-    int i,n;
-    printf("Enter a number of terms: ");
-    scanf("%d",&n);
-    for(i=0;i<=n;i++)
+    float sum,term,x,num;
+    int degree;
+    int i=2,fact=1;
+    printf("Enter degree: ");
+    scanf("%d",&degree);
+    x=degree*PI/180;//conversion of degree to radian(x)
+    sum = x;
+    term=x;
+    num=x*x; //stores x^2 to avoid recalculation
+    while(fabs(term)>=0.0001) //fabs is used to get absolute value of float
     {
-        printf("%d\t",fib(i));
-    }
-}
+        fact=fact*i*i+1;//factorial calculation
+        term=term*(-num)/fact;//calculation of each term
+        sum+=term;//stores the final result of sin(x)
+        i=i+2;//skips even power
 
-int fib(int n)
-{
-    if(n==0)
-    return 0;
-    else if(n==1)
-    return 1;
-    else
-    return fib(n-1)+fib(n-2);
+    }
+    printf("Approx sin(%d)=%.2f\n",degree,sum);//prints the result
 }
