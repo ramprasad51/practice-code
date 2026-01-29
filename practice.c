@@ -1,28 +1,85 @@
-// Program to calculate average marks of three subjects and determine pass/fail status using a function.
+// KYC verification using arrays and switch-case
 #include<stdio.h>
-int ispassed(int s1,int s2,int s3);// function prototype
-void main()
-{
-    int sub1,sub2,sub3;
-    float avg;
-    printf("Enter marks for sub1: ");
-    scanf("%d",&sub1);
-     printf("Enter marks for sub2: ");
-    scanf("%d",&sub2);
-     printf("Enter marks for sub3: ");
-    scanf("%d",&sub3);
-    avg=(sub1+sub2+sub3)/3;// calculating average
-    printf("avg marks:%.2f\n",avg);
-    if(ispassed(sub1,sub2,sub3)==1)// function call
-    printf("Result:passed\n");
-    else
-    printf("Result:Fail\n");
-}
 
-int ispassed(int s1,int s2,int s3)// function definition
+int main()
 {
-    if(s1>=40&& s2>=40 && s3>=40)// checking pass condition
-    return 1;
+    int pan[]={1111,2222,3333};
+    int aadhar[]={4444,5555,6666};  
+    int aapar[]={7777,8888,9999};
+    int DL[]={9999,1234};
+    int passport[]={4321,8765};
+
+    int choice,id,i,found=0;
+
+    printf("KYC verification system\n");
+    printf("1. PAN number\n");
+    printf("2. Aadhar number\n");
+    printf("3. APAR number\n");
+    printf("4. Driving License\n");
+    printf("5. Passport number\n");
+
+    printf("Enter your choice: \n");
+    scanf("%d",&choice);
+
+    printf("Enter your ID number: \n");
+    scanf("%d",&id);
+
+    switch (choice)
+    {
+        case 1:
+            for(i=0;i<3;i++)
+                if(pan[i]==id)
+                { 
+                    found=1;
+                     break; 
+                    }
+            break;
+
+        case 2:
+            for(i=0;i<3;i++)
+                if(aadhar[i]==id)
+                {
+                     found=1;
+                     break; 
+                    }
+            break;
+
+        case 3:
+            for(i=0;i<3;i++)
+                if(aapar[i]==id)
+                {
+                     found=1;
+                     break;
+                     }
+            break;
+
+        case 4:
+            for(i=0;i<2;i++)
+                if(DL[i]==id)
+                {
+                     found=1; 
+                    break; 
+                }
+            break;
+
+        case 5:
+            for(i=0;i<2;i++)
+                if(passport[i]==id)
+                {
+                     found=1; 
+                    break; 
+                }
+            break;
+
+        default:
+            printf("Invalid choice\n");
+            return 0;
+    }
+
+    if(found)
+        printf(" Verified : ID found in the records\n");
     else
+        printf(" Not Verified : ID not found in the records\n");
+
     return 0;
 }
