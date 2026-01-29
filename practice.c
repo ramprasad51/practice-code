@@ -1,21 +1,30 @@
-// C program that swap two accounts' balances using functions(swap by reference)
+// C program that  swaps two CURRENIE$ values by call by reference and call by value
 #include <stdio.h>
-void swap(int *a,int *b)
+void swapbyvalue(int a, int b)//funnction definition
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    printf("Preview of swap by value a=%d b=%d\n",a,b);
+}
+void swapbyreference(int *a, int *b)//function definition
 {
     int temp;
     temp=*a;
     *a=*b;
     *b=temp;
 }
-
-void main()
+int main()
 {
-    int balance1,balance2;
-    printf("Enter balance of account 1: ");
-    scanf("%d", &balance1);
-    printf("Enter balance of account 2: ");
-    scanf("%d", &balance2);
-    printf("account balance Before swapping: Account 1 = %d\n Account 2 = %d\n", balance1, balance2);
-    swap(&balance1, &balance2);
-    printf("account balance After swapping: Account 1 = %d\n Account 2 = %d\n", balance1, balance2);
+    int x,y;
+    printf("Enter two CURRENIE$ values:\n");
+    scanf("%d %d",&x,&y);
+    swapbyvalue(x,y);//function call by value
+    printf("After call by value: %d %d\n",x,y);
+
+    swapbyreference(&x,&y);//function call by reference
+    printf("After call by reference: %d %d\n",x,y);
+    return 0;
+
 }
