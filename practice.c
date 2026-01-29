@@ -1,29 +1,28 @@
-//To check a keyword(one string) in given course description(another string) and also find the length of the course description.using string functions.
-#include <stdio.h>
-#include<string.h>
-#define MAX 100
-int main()
+// Program to calculate average marks of three subjects and determine pass/fail status using a function.
+#include<stdio.h>
+int ispassed(int s1,int s2,int s3);// function prototype
+void main()
 {
-    char description[MAX];
-    char keyword[MAX];
-    int len;
-    printf("Enter course description: ");
-    gets(description);
-    printf("Enter keyword to search: ");
-    gets(keyword);
-    len=strlen(description);
-    printf("The length of course description is:%d\n",len);
-
-    if(strstr(description , keyword) != NULL)
-
-{
-    printf("Keyword \"%s\" found in \"%s\" description.\n", keyword, description);
-
+    int sub1,sub2,sub3;
+    float avg;
+    printf("Enter marks for sub1: ");
+    scanf("%d",&sub1);
+     printf("Enter marks for sub2: ");
+    scanf("%d",&sub2);
+     printf("Enter marks for sub3: ");
+    scanf("%d",&sub3);
+    avg=(sub1+sub2+sub3)/3;// calculating average
+    printf("avg marks:%.2f\n",avg);
+    if(ispassed(sub1,sub2,sub3)==1)// function call
+    printf("Result:passed\n");
+    else
+    printf("Result:Fail\n");
 }
 
-else
+int ispassed(int s1,int s2,int s3)// function definition
 {
-    printf("Keyword \"%s\" not found in \"%s\" description.\n", keyword, description);
-}
+    if(s1>=40&& s2>=40 && s3>=40)// checking pass condition
+    return 1;
+    else
     return 0;
 }
