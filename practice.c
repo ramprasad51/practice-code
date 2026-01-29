@@ -1,33 +1,22 @@
-// C program that takes a student marks as input and prints the corresponding grade
-#include <stdio.h>
-void main()
+// C program to calculate the straight line distance between two points 
+#include<stdio.h>
+#include<math.h>
+void main() 
 {
-    int marks;
-    printf("Enter the student marks: ");
-    scanf("%d",&marks);
-    
-    if(marks<0 || marks>100)
-    {
-        printf("Invalid marks\n");
-    }
-    else if(marks>=90)
-    {
-        printf("Grade: A\n");
-    }
-    else if(marks>=75)
-    {
-        printf("Grade: B\n");
-    }
-    else if(marks>=60)
-    {
-        printf("Grade: C\n");
-    }
-    else if(marks>=50)
-    {
-        printf("Grade: D\n");
-    }
-    else
-    {
-        printf("Grade: F\n");
-    }
-}
+    float x1, y1, x2, y2;
+    float distance;
+
+
+    // Input coordinates of the first point
+    printf("Enter the first coordinates: ");
+    scanf("%f %f", &x1, &y1);
+    // Input coordinates of the second point
+    printf("Enter the second coordinates: ");
+    scanf("%f %f", &x2, &y2);
+
+    // Calculate the distance
+    distance=sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
+    printf("The straight line distance between the two points is: %.2f\n", distance);
+
+}    
