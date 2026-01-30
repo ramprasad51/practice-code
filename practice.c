@@ -1,30 +1,31 @@
-//Structure that holds details of B00K & displays them using a C programm
+//Joining First name & surname without in-built string function
 #include<stdio.h>
-struct book // structure declaration
-{
-    char title[50];
-    char author[50];
-    int year;
-};
-
 int main()
 {
-    int i,n;
-    printf("Enter number of books : ");
-    scanf("%d",&n);
+    char first[50],last[55],full[100];
+    int i=0,j=0,length=0;
+    printf("Enter first name: ");
+    scanf("%s",first);
+    printf("Enter Last name: ");
+    scanf("%s",last);
 
-    struct book booklist[n];// array of structures
-
-    for(i=0;i<n;i++)
+    while(first[i]!='\0')
     {
-        printf("Enter title,author & year of publication for book%d\n",i+1);
-        scanf("%s %s %d",booklist[i].title,booklist[i].author,&booklist[i].year);
+        full[length++]=first[i++];
     }
-
-    printf("\n Library book deatils: \n");
-    for(i=0;i<n;i++)
+    full[length++]=' ';
+    while(last[j]!='\0')
     {
-        printf("Book%d:%s by %s(in %d)\n ",i+1,booklist[i].title,booklist[i].author,booklist[i].year);
+        full[length++]=last[j++];
     }
-    return 0;
+    full[length]='\0';
+
+    printf("Full name:%s\n",full);
+    printf("Length:%d\n",length);
+
+    if(length>20)
+    printf("Name t00 longgg for screen \n");
+    else
+    printf("Name fits the screen\n");
+    return  0;
 }
