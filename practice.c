@@ -1,31 +1,52 @@
-//Joining First name & surname without in-built string function
+//Finding a B00k ID with help of Binary search
 #include<stdio.h>
 int main()
 {
-    char first[50],last[55],full[100];
-    int i=0,j=0,length=0;
-    printf("Enter first name: ");
-    scanf("%s",first);
-    printf("Enter Last name: ");
-    scanf("%s",last);
+    int bookid[35];
+    int low,mid,high,key,loc=-1;
+    int i,n;
 
-    while(first[i]!='\0')
+    printf("Enter the num of books: ");
+    scanf("%d",&n);
+
+    printf("Enter the the %dbooks in ascending order:  \n",n);
+    for(i=0;i<n;i++)
     {
-        full[length++]=first[i++];
+        scanf("%d",&bookid[i]);
     }
-    full[length++]=' ';
-    while(last[j]!='\0')
+
+    printf("Enter the bookid to search: ");
+    scanf("%d",&key);
+    low=0;
+    high=n-1;
+    while(low<=high)
     {
-        full[length++]=last[j++];
+        mid=(low+high)/2;
+    
+
+    if(bookid[mid]==key)
+    {
+        loc=mid;
+        break;
+        
     }
-    full[length]='\0';
-
-    printf("Full name:%s\n",full);
-    printf("Length:%d\n",length);
-
-    if(length>20)
-    printf("Name t00 longgg for screen \n");
+    else if(bookid[mid]<key)
+    {
+        low=mid+1;
+    }
     else
-    printf("Name fits the screen\n");
-    return  0;
+    {
+        high=mid-1;
+    }
+    }
+
+    if(loc!=-1)
+    {
+        printf("Element %d found at location %d\n",key,loc+1);
+    }
+    else
+    {
+       printf("Element not found \n");
+    }
+    return 0;
 }
