@@ -1,22 +1,51 @@
-//C programm that  reads n integers,stores them in an array, and calculates their sum
-
+//Calculator using switch case to perform basic arithmetic operations on two numbers
 #include<stdio.h>
 int main()
 {
-    int i,n,sum=0;
-    int arr[100];
+    int a,b;
+    char op;
 
-    printf("Enter the number of integers:  ");
-    scanf("%d",&n);
+    printf("Enter two numbers: ");
+    scanf("%d%d",&a,&b);
+    printf("Select operator(+,-,*,/,%%):  ");//%% is used to print % symbol
+    scanf("  %c",&op);
 
-    printf("Enter %d integers: \n",n);
-    for(i=0;i<n;i++)
+    switch(op)
     {
-        scanf("%d",&arr[i]);
-        sum+=arr[i];
-    }
+        case'+'://Addition
+        printf("Result:%d",a+b);
+        break;
 
-    printf("Sum of the integers is: %d\n",sum);
+        case'-'://Subtraction
+        printf("Result:%d",a-b);
+        break;
+
+        case'*'://Multiplication
+        printf("Result:%d",a*b);
+        break;
+
+        case'/'://Division
+        if(b!=0)
+        {
+            printf("Result:%d",a/b);
+        }
+        else
+        {
+            printf("Division by zer0 is  n0t all0wed");
+        }
+        break;
+
+        case'%'://Modulus Division
+        if(b!=0)
+        {
+            printf("Result:%d",a%b);
+        }
+        else
+        {
+            printf(" In Modulus Division by zer0 is n0t all0wed");
+        }
+        break;
+    }
     return 0;
 
 }
