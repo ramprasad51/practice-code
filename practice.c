@@ -1,51 +1,19 @@
-//Calculator using switch case to perform basic arithmetic operations on two numbers
+//Floyd's Triangle printing using nested loops 
 #include<stdio.h>
 int main()
 {
-    int a,b;
-    char op;
+    int i,j,n,num=1;
+    printf("Enter number of rows: ");
+    scanf("%d",&n);
 
-    printf("Enter two numbers: ");
-    scanf("%d%d",&a,&b);
-    printf("Select operator(+,-,*,/,%%):  ");//%% is used to print % symbol
-    scanf("  %c",&op);
-
-    switch(op)
+    for(i=0;i<=n;i++)   //outer loop for rows
     {
-        case'+'://Addition
-        printf("Result:%d",a+b);
-        break;
-
-        case'-'://Subtraction
-        printf("Result:%d",a-b);
-        break;
-
-        case'*'://Multiplication
-        printf("Result:%d",a*b);
-        break;
-
-        case'/'://Division
-        if(b!=0)
+        for(j=0;j<=i;j++)  //inner loop to print numbers in each row
         {
-            printf("Result:%d",a/b);
+            printf("%d\t",num);
+            num++;
         }
-        else
-        {
-            printf("Division by zer0 is  n0t all0wed");
-        }
-        break;
-
-        case'%'://Modulus Division
-        if(b!=0)
-        {
-            printf("Result:%d",a%b);
-        }
-        else
-        {
-            printf(" In Modulus Division by zer0 is n0t all0wed");
-        }
-        break;
+        printf("\n");
     }
     return 0;
-
 }
