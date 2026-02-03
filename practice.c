@@ -1,19 +1,39 @@
-//Floyd's Triangle printing using nested loops 
+//Transpose of a matrix using nested loops
 #include<stdio.h>
 int main()
 {
-    int i,j,n,num=1;
-    printf("Enter number of rows: ");
-    scanf("%d",&n);
+    int a[10][10],t[10][10];
+    int i,j,r,c;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d",&r,&c);
 
-    for(i=0;i<=n;i++)   //outer loop for rows
+    printf("Enter matrix elements: \n");
+    for(i=0;i<r;i++)
     {
-        for(j=0;j<=i;j++)  //inner loop to print numbers in each row
+        for(j=0;j<c;j++)
         {
-            printf("%d\t",num);
-            num++;
+            scanf("%d",&a[i][j]); //input matrix elements
         }
-        printf("\n");
     }
+
+    for(i=0;i<r;i++)
+{
+    for(j=0;j<c;j++)
+    {
+        t[j][i]=a[i][j];//transpose logic
+    }
+}
+
+printf("Transpose of matrix is: \n");
+for(i=0;i<c;i++)
+{
+    for(j=0;j<r;j++)
+    {
+        printf("%d ",t[i][j]);
+        
+
+    }
+    printf("\n");//new line after each row
+}
     return 0;
 }
