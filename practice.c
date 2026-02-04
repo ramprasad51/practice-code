@@ -1,39 +1,12 @@
-//Transpose of a matrix using nested loops
+//Very simple C program to understand  enumeration data type
 #include<stdio.h>
 int main()
 {
-    int a[10][10],t[10][10];
-    int i,j,r,c;
-    printf("Enter number of rows and columns: ");
-    scanf("%d %d",&r,&c);
-
-    printf("Enter matrix elements: \n");
-    for(i=0;i<r;i++)
-    {
-        for(j=0;j<c;j++)
-        {
-            scanf("%d",&a[i][j]); //input matrix elements
-        }
-    }
-
-    for(i=0;i<r;i++)
-{
-    for(j=0;j<c;j++)
-    {
-        t[j][i]=a[i][j];//transpose logic
-    }
-}
-
-printf("Transpose of matrix is: \n");
-for(i=0;i<c;i++)
-{
-    for(j=0;j<r;j++)
-    {
-        printf("%d ",t[i][j]);
-        
-
-    }
-    printf("\n");//new line after each row
-}
+    enum week{Sunday, Monday, Tuesday, Wednesday, Thursday, Friday=8, Saturday};
+    enum week today;
+    today=Tuesday;
+    printf("Value of Tuesday is: %d\n",today);
+    today=Friday;
+    printf("Value of Friday is: %d\n",today);
     return 0;
 }
