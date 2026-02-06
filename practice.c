@@ -1,24 +1,26 @@
-//Swapping two numbers using pointers
+// This program takes a number as input and checks whether it is positive, negative, or zero using pointers.
 #include<stdio.h>
 int main()
 {
-    int a,b;
-    int *p,*q;
-    int temp;  //temporary variable to hold value during swap
+    int num;
+    int *p;
 
-    printf("Enter two numbers:  ");
-    scanf("%d%d",&a,&b);
+    printf("Enter a number: ");
+    scanf("%d",&num);
 
-    //Assigning addresses of a and b to pointers  variables p and q
-    p=&a;
-    q=&b;
+    p=&num;   //Assigning the address of num to pointer variable  p
 
-//Assigning values using pointers
-    temp=*p;
-    *p=*q;
-    *q=temp;
-
-    printf("After swap: \n ");
-    printf("a=%d\nb=%d\n",a,b);
+    if(*p>0)
+    {
+        printf("Number is positive");
+    }
+    else if(*p<0)
+    {
+        printf("Number is negative");
+    }
+    else
+    {
+        printf("Number is zer0");
+    }
     return 0;
 }
