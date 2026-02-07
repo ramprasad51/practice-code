@@ -1,26 +1,48 @@
-// This program takes a number as input and checks whether it is positive, negative, or zero using pointers.
+// C program to add two matrices using 2D arrays & nested loops
 #include<stdio.h>
 int main()
 {
-    int num;
-    int *p;
+    int a[10][10],b[10][10],sum[10][10];
+    int m,n,i,j;
 
-    printf("Enter a number: ");
-    scanf("%d",&num);
+    printf("Enter number of rows & columns: ");
+    scanf("%d %d",&m,&n);
 
-    p=&num;   //Assigning the address of num to pointer variable  p
-
-    if(*p>0)
+    printf("Enter elements of first matrix: \n");
+    for(i=0;i<m;i++)
     {
-        printf("Number is positive");
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+
     }
-    else if(*p<0)
+     printf("Enter elements of second matrix: \n");
+    for(i=0;i<m;i++)
     {
-        printf("Number is negative");
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+
     }
-    else
+// Adding two matrices
+    for(i=0;i<m;i++)
     {
-        printf("Number is zer0");
+        for(j=0;j<n;j++)
+        {
+            sum[i][j]=a[i][j]+b[i][j];
+        }
+    }
+
+    printf("Sum of two matrices: \n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d ",sum[i][j]);
+        }
+        printf("\n");
     }
     return 0;
 }
