@@ -1,48 +1,26 @@
-// C program to add two matrices using 2D arrays & nested loops
+//Toggle case of a string 
 #include<stdio.h>
 int main()
 {
-    int a[10][10],b[10][10],sum[10][10];
-    int m,n,i,j;
+    char str[50];
+    int i=0;
 
-    printf("Enter number of rows & columns: ");
-    scanf("%d %d",&m,&n);
+    printf("Enter a string: ");
+    gets(str);
 
-    printf("Enter elements of first matrix: \n");
-    for(i=0;i<m;i++)
+    while(str[i]!='\0')
     {
-        for(j=0;j<n;j++)
+        if(str[i]>='A'&& str[i]<='Z')
         {
-            scanf("%d",&a[i][j]);
+            str[i]=str[i]+32;//UPPERCASE to lowecase
         }
-
-    }
-     printf("Enter elements of second matrix: \n");
-    for(i=0;i<m;i++)
-    {
-        for(j=0;j<n;j++)
+        else if(str[i]>='a'&& str[i]<='z')
         {
-            scanf("%d",&b[i][j]);
+            str[i]=str[i]-32;//lowercase  to UPPERCASE
         }
-
-    }
-// Adding two matrices
-    for(i=0;i<m;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            sum[i][j]=a[i][j]+b[i][j];
-        }
+        i++;//incrementing the index to move to the next character
     }
 
-    printf("Sum of two matrices: \n");
-    for(i=0;i<m;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            printf("%d ",sum[i][j]);
-        }
-        printf("\n");
-    }
+    printf("Converted string:%s",str);//printing the converted string
     return 0;
 }
