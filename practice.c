@@ -1,26 +1,28 @@
-//Toggle case of a string 
+//Programm to print Number Pyramid pattern
 #include<stdio.h>
 int main()
 {
-    char str[50];
-    int i=0;
+    int i,j,k,n;
+    printf("Enter number of rows: ");//Input number of rows in the pyramid
+    scanf("%d",&n);
 
-    printf("Enter a string: ");
-    gets(str);
-
-    while(str[i]!='\0')
+    for(i=1;i<=n;i++)//Loop to print each row of the pyramid
     {
-        if(str[i]>='A'&& str[i]<='Z')
+        for(j=1;j<=n-i;j++)//Loop to print spaces before the numbers in each row
         {
-            str[i]=str[i]+32;//UPPERCASE to lowecase
+            printf(" ");//Print space before the numbers
         }
-        else if(str[i]>='a'&& str[i]<='z')
-        {
-            str[i]=str[i]-32;//lowercase  to UPPERCASE
-        }
-        i++;//incrementing the index to move to the next character
-    }
 
-    printf("Converted string:%s",str);//printing the converted string
+        for(k=1;k<=i;k++)//Loop to print numbers in increasing order in each row
+        {
+            printf("%d",k);//Print numbers in increasing order
+        }
+
+        for(k=i-1;k>=1;k--)//Loop to print numbers in decreasing order in each row
+        {
+            printf("%d",k);//Print numbers in decreasing order
+        }
+        printf("\n");//Move to the next line after each row is printed
+    }
     return 0;
 }
