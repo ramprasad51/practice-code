@@ -1,28 +1,19 @@
-//Programm to print Number Pyramid pattern
+// C program to print * pattern
 #include<stdio.h>
 int main()
 {
-    int i,j,k,n;
-    printf("Enter number of rows: ");//Input number of rows in the pyramid
+    int i,j,n;
+    printf("Enter the number of rows: ");
     scanf("%d",&n);
 
-    for(i=1;i<=n;i++)//Loop to print each row of the pyramid
+    for(i=0;i<=n;i++)//outer loop for number of rows
     {
-        for(j=1;j<=n-i;j++)//Loop to print spaces before the numbers in each row
+        for(j=0;j<=i;j++)//Number of * in each row is equal to the row number
         {
-            printf(" ");//Print space before the numbers
+            printf("*");
         }
-
-        for(k=1;k<=i;k++)//Loop to print numbers in increasing order in each row
-        {
-            printf("%d",k);//Print numbers in increasing order
-        }
-
-        for(k=i-1;k>=1;k--)//Loop to print numbers in decreasing order in each row
-        {
-            printf("%d",k);//Print numbers in decreasing order
-        }
-        printf("\n");//Move to the next line after each row is printed
+        printf("\n");//new line after each row
     }
     return 0;
+
 }
