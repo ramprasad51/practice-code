@@ -1,19 +1,16 @@
-// C program to print * pattern
-#include<stdio.h>
-int main()
-{
-    int i,j,n;
-    printf("Enter the number of rows: ");
-    scanf("%d",&n);
+//To check whether the given number is even or odd
+#include <stdio.h>
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
 
-    for(i=0;i<=n;i++)//outer loop for number of rows
-    {
-        for(j=0;j<=i;j++)//Number of * in each row is equal to the row number
-        {
-            printf("*");
-        }
-        printf("\n");//new line after each row
+    if (num % 2 == 0)
+     {
+        printf("%d is even.\n", num);
+    } else {
+        printf("%d is odd.\n", num);
     }
-    return 0;
 
+    return 0;
 }
