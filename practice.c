@@ -1,16 +1,9 @@
-//To check whether the given number is even or odd
-#include <stdio.h>
-int main() {
-    int num;
-    printf("Enter an integer: ");
-    scanf("%d", &num);
-
-    if (num % 2 == 0)
-     {
-        printf("%d is even.\n", num);
-    } else {
-        printf("%d is odd.\n", num);
-    }
-
-    return 0;
+//To find greatest of two numbers using conditional operator
+#include<stdio.h>
+void main()
+{
+    int a,b;
+    printf("Enter any two number: ");
+    scanf("%d %d",&a,&b);
+    printf(a>=b?"a is larger": "b is larger");//conditional operator  (? :)
 }
