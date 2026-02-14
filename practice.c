@@ -1,40 +1,27 @@
-//C programm to read n integers into an array and finds the maximum,minimum,and average of elements of array using a function & p*inters
+//C Programm to access and modify the members  of structure in array of structure
 #include<stdio.h>
-//Function prototype
-void analyze(int *a,int n,int *max,int *min,float *avg);
+struct student
+{
+    int usn;
+    float marks;
+}; 
+
 int main()
 {
-    int a[100],n,i;
-    int max,min;
-    float avg;
-    printf("Enter number of elements: ");
-    scanf("%d",&n);
-
-    printf("Enter elements: \n");
-    for(i=0;i<n;i++)
-    scanf("%d",&a[i]);
-
-    analyze(a,n,&max,&min,&avg);//Function call
-
-    printf("Largest=%d\n",max);
-    printf("Smallest=%d\n",min);
-    printf("Average=%.2f\n",avg);
-    return 0;
-}
-void analyze(int *a,int n,int *max,int *min,float *avg)//Function definition
-{
-    int i,sum=0;
-    *max=*min=a[0];//Initialize max and min with the first element of the array
-    for(i=0;i<n;i++)
+    int i;
+    struct student s[2];
+    for(i=0;i<2;i++)
     {
-        if(a[i]>*max)
-        *max=a[i];
-
-        if(a[i]<*min)
-        *min=a[i];
-
-        sum+=a[i];
+        printf("Enter USN and marks of student%d\n",i+1);
+        scanf("%d %f",&s[i].usn,&s[i].marks);
     }
-    *avg=(float)sum/n;
 
+    s[0].marks+=5;
+
+    printf("Students deatils after modification:\n");
+    for(i=0;i<2;i++)
+    {
+        printf("USN:%d\t Marks:%.2f\n",s[i].usn,s[i].marks);
+    }
+    return 0;
 }
