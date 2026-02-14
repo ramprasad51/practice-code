@@ -1,27 +1,27 @@
-//C Programm to access and modify the members  of structure in array of structure
-#include<stdio.h>
+//Arrays within structures
+#include <stdio.h>
 struct student
 {
     int usn;
-    float marks;
-}; 
+    int marks[3];//array inside structure
+};
 
 int main()
 {
+    struct student s;
     int i;
-    struct student s[2];
-    for(i=0;i<2;i++)
+    s.usn=93;
+
+    printf("Enter  3 subject marks:\n");//taking input for array inside structure
+    for(i=0;i<3;i++)
     {
-        printf("Enter USN and marks of student%d\n",i+1);
-        scanf("%d %f",&s[i].usn,&s[i].marks);
+        scanf("%d",&s.marks[i]);
     }
-
-    s[0].marks+=5;
-
-    printf("Students deatils after modification:\n");
-    for(i=0;i<2;i++)
+    printf("USN:%d\n Marks:\n",s.usn);//printing the array elements of structure
+    for(i=0;i<3;i++)
     {
-        printf("USN:%d\t Marks:%.2f\n",s[i].usn,s[i].marks);
+        printf("%d\t",s.marks[i]);
     }
     return 0;
+
 }
