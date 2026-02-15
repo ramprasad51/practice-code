@@ -1,20 +1,18 @@
-// C program to demonstrate function pointer
+//Passing 1-D array to a function
 #include<stdio.h>
-//function definition
-int add(int a,int b)
+//Function to display the elements of an array
+void display( int a[],int n)
 {
-    return  a+b;
+    int i;
+    for(i=0;i<n;i++)
+    printf("%d\t",a[i]);
 }
 
 int main()
 {
-    int result;
-//function pointer declaration
-    int (*fp)(int,int);
-//Initialization pointer to function
-    fp=add;
-//function call using pointer to function
-    result=fp(10,20);
-    printf("Sum=%d\n",result);
+    int arr[5]={10,20,30,40,50};//Declaring and initializing an array
+
+    printf("Array elements are: \n");
+    display(arr,5);//Passing array to a function
     return 0;
 }
