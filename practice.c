@@ -1,27 +1,20 @@
-//Passing entire structure to a function using call by value
-#include <stdio.h>
-struct student
-{ 
-    int roll;
-    float marks;
-};
-//Function prototype
-void display(struct student s);
-
-void main()
+// C program to demonstrate function pointer
+#include<stdio.h>
+//function definition
+int add(int a,int b)
 {
-    struct student s;
-    printf("Enter roll number: ");
-    scanf("%d",&s.roll);
-    printf("Enter marks: ");
-    scanf("%f",&s.marks);
-//Function call
-    display(s);
+    return  a+b;
 }
-//Function definition
-void display(struct student s)
+
+int main()
 {
-    printf("\n Student deatils:\n");
-    printf("Roll:%d\n",s.roll);
-    printf("Marks:%.2f\n",s.marks);
+    int result;
+//function pointer declaration
+    int (*fp)(int,int);
+//Initialization pointer to function
+    fp=add;
+//function call using pointer to function
+    result=fp(10,20);
+    printf("Sum=%d\n",result);
+    return 0;
 }
