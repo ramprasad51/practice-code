@@ -1,19 +1,12 @@
-//Programm to understand variable length array(VLA) 
+//C program to calculate simple interest
 #include<stdio.h>
-int main()
+void main()
 {
-    int i,n;
-    printf("Enter array size: ");
-    scanf("%d",&n);
-    int a[n];//VLA declaration
+    float p,t,r,si;
+    printf("Enter principal(p),time(t),rate(r): ");
+    scanf("%f %f %f",&p,&t,&r);
+//formula for simple interest
+    si=(p*t*r)/100;
 
-    for(i=0;i<n;i++)
-    a[i]=i+1;//incrementing array elements from 1 to n
-
-    printf("Array elements:\n");
-    for(i=0;i<n;i++)
-    {
-        printf("%d\t",a[i]);
-    }
-    return 0;
+    printf("Simple interest=%.2f",si);
 }
