@@ -1,18 +1,16 @@
-//Passing 1-D array to a function
+//Accessing array elements using pointer
 #include<stdio.h>
-//Function to display the elements of an array
-void display( int a[],int n)
-{
-    int i;
-    for(i=0;i<n;i++)
-    printf("%d\t",a[i]);
-}
-
 int main()
 {
-    int arr[5]={10,20,30,40,50};//Declaring and initializing an array
+    int a[5]={12,24,36,48,60};
+    int i;
+    int *p;
+    p=a;//or p=&a[0];//pointer point to base address of array
 
-    printf("Array elements are: \n");
-    display(arr,5);//Passing array to a function
+    printf("Array elemets using pointer:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%d\t",*(p+i));//p+i gives the address of the ith element and * dereferences it to get the value
+    }
     return 0;
 }
