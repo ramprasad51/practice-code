@@ -21,9 +21,9 @@ void display(struct student s[],int n)
 
 int main()
 {//Declaring an array of structure and initializing it with the details of students
-    struct students[2]={
+    struct student s[2]={
         {1,"Ram",87.5},
-        {1,"Prasad",93}
+        {3,"Prasad",93}
     };
     //Calling the display function to display the details of student
     display(s,2);
