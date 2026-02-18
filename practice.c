@@ -1,26 +1,33 @@
-// This program performs multiplication, subtraction, and division on two whole numbers entered by the user.
+//Program in which we will pass an array of structure to a function and display the details of students.
 #include<stdio.h>
-void main()
+//Defining a structure named student
+struct student
 {
-    int a,b;
-    int mul,sub;
-    float div;
-
-    printf("Enter two whole numbers: ");
-    scanf("%d %d",&a,&b);
-
-    mul=a*b;
-    sub=a-b;
-    printf("Multiplication result= %d\n",mul);
-    printf("Subtraction result=%d\n",sub);
-
-    if(b!=0)
+    int roll;
+    char name[25];
+    float marks;
+};
+//Function to display the details of students
+void display(struct student s[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)//Loop to display the details of students
     {
-        div=(float)a/b;
-        printf("Division result=%.2f\n",div);
-    }
-    else
-    {
-        printf("Division by zer0 is n0t all0wed");
+        printf("\n Roll no:%d",s[i].roll);
+        printf("\n Name:%s",s[i].name);
+        printf("\n Marks:%.2f",s[i].marks);
     }
 }
+
+int main()
+{//Declaring an array of structure and initializing it with the details of students
+    struct students[2]={
+        {1,"Ram",87.5},
+        {1,"Prasad",93}
+    };
+    //Calling the display function to display the details of student
+    display(s,2);
+
+    return 0;
+}
+
