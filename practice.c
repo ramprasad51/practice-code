@@ -1,32 +1,25 @@
-//Store and display employee details using structure
+// A program to check whether a number is palindrome or not
 #include<stdio.h>
-//structure declaration
-struct employee
-{
-    int emp_id;
-    char name[20];
-    float salary;
-   long long int ph_num;//to store 10 digit phone number we can use long long int data type
-};
-
 int main()
 {
-    struct employee e;//structure variable declaration
-//Reading employee details from user
-    printf("Enter Employee id: ");
-    scanf("%d",&e.emp_id);
-    printf("Enter employee name: ");
-    scanf("%s",e.name);
-    printf("Enter Salary: ");
-    scanf("%f",&e.salary);
-    printf("Enter Phone number: ");
-    scanf("%lld",&e.ph_num);
-//Displaying employee details
-    printf("\n~~~ Employee deatils ~~~\n");
-    printf("Employee ID:%d\n",e.emp_id);
-    printf("Employee Name:%s\n",e.name);
-    printf("Employee salary:%.2f\n",e.salary);
-    printf("Employee phone number:%lld",e.ph_num);
+    int n,rev=0,temp,rem;//rev is used to store the reverse of the number, temp is used to store the original number and rem is used to store the remainder
+    printf("Enter a number: ");
+    scanf("%d",&n);
+
+    temp=n;
+
+    while(n!=0)//loop to reverse the number
+    {
+        rem=n%10;//to get the last digit of the number
+
+        rev=rev*10+rem;//to add the last digit to the reverse number
+
+        n=n/10;//to remove the last digit of the number
+    }
+    if(temp==rev)//to check whether the original number and the reverse number are same or not
+    printf("The number is palindrome\n");
+    else
+    printf("The number is not palindrome\n");
 
     return 0;
 }
